@@ -1,0 +1,13 @@
+*.iml
+.classpath
+.idea/
+.project
+.settings
+/lib/
+build/*.jar
+build/apache-maven*
+build/scala*
+out/
+target/
+work/
+
