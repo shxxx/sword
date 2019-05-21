@@ -345,9 +345,9 @@ class SettleSession private{
       //缓存数据
       scopeDataCache.addSUM(rightDataSet.value.MATCH_IDENTIFIER, returnRdd)
       //返回
-      returnRdd
+      return returnRdd
     }else{
-      cacheData
+      return cacheData
     }
   }
   //处理一对多聚合平均值
@@ -583,7 +583,9 @@ class SettleSession private{
         value.rdd.map(row => (row.getAs[String]("ROWID"), row.getAs[Double](valueField)))
       }
     }
-    def addSUM(key: String, value: RDD[(String, Double)]): Unit = rddDataCache += (ScopeDataCache.prefix_SUM + key -> value)
+    def addSUM(key: String, value: RDD[(String, Double)]): Unit = {
+      rddDataCache += (ScopeDataCache.prefix_SUM + key -> value)
+    }
     def getSUM(key: String): RDD[(String, Double)] = rddDataCache.getOrElse(ScopeDataCache.prefix_SUM + key, null)
 
     def addAVG(key: String, value: RDD[(String, Double)]): Unit = rddDataCache += (ScopeDataCache.prefix_AVG+ key -> value)

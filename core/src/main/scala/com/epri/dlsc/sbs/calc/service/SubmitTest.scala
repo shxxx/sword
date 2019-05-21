@@ -19,8 +19,8 @@ object SubmitTest {
       .add("starttime", "2018-01-15 00:00:00")
       .add("endtime", "2018-01-15 23:45:00")
 
-    SettleSession.getOrCreate
-        .config("95518", SourceTarget("3", "3"),  params,  Array("107fa36778fbef446475b5e3b79126ce"))
+    SettleSession.newCreate
+        .config("95518", SourceTarget("3", "3"),  params,  Array("66c0cf80bd0df4c4c04a00c31e50d65f"))
         .submit()
 //  SettleSession.getOrCreate
 //        .config(marketId, SourceTarget(sourceFlag, resultFlag),  paramsObj, new SimpleDateFormat("yyyyMMdd").parse(calcDateTime), formulaTypeOrIds)

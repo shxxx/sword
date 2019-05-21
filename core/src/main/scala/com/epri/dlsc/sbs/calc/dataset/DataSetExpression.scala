@@ -25,7 +25,7 @@ private[calc] class DataSetExpression(
                        ) {
   private var MATCHID: String = _
   val MATCH_IDENTIFIER: String = if(MATCHID == null){
-    MATCHID = dataSetId + "_" +where.sorted.mkString("_")
+    MATCHID = dataSetId + "_"+ valueField + where.sorted.mkString("_")
     if(filter.nonEmpty){
       MATCHID += filter.keySet.toList.sorted.map(key => key+"="+filter(key)).mkString("_")
     }

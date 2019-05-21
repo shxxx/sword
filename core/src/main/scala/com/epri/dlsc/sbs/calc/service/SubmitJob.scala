@@ -33,10 +33,10 @@ object SubmitJob {
     }
 
     isFormulaId match {
-      case "1" => SettleSession.getOrCreate
+      case "1" => SettleSession.newCreate
         .config(marketId, SourceTarget(sourceFlag, resultFlag),  paramsObj,  formulaTypeOrIds.split(","))
         .submit()
-      case "0" => SettleSession.getOrCreate
+      case "0" => SettleSession.newCreate
         .config(marketId, SourceTarget(sourceFlag, resultFlag),  paramsObj, new SimpleDateFormat("yyyyMMdd").parse(calcDateTime), formulaTypeOrIds)
         .submit()
     }
